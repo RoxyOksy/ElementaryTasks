@@ -1,0 +1,17 @@
+p:first-child{
+    font-weight: 700;
+}
+span{
+    font-style: italic;
+}
+.shown{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+button{
+    font-weight: 600;
+    text-decoration: underline;
+    margin-bottom: 15px;
+}
