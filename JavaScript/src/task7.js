@@ -1,16 +1,14 @@
 function getFibonacciSequence(start = 1, finish = 21) {
     start = numberValidation(start);
-    finish = numberValidation(finish);
-    var result = '';
+    finish = numberValidation(finish);    
 
     if (start > finish) {
-        var n = finish;
+        var temp = finish;
         finish = start;
-        start = n;
+        start = temp;
     }
 
     var arr = [1, 1];
-    var i = 0;
     var next;
 
     for (var i = 0; ; i++) { 
@@ -20,13 +18,14 @@ function getFibonacciSequence(start = 1, finish = 21) {
         } else break;
     }
 
-    function isStart(element) {
+    var startIndex = arr.findIndex(function(element){
         return element >= start;
-    }
-
-    var startIndex = arr.findIndex(isStart);
+    });
     arr = arr.slice(startIndex);
 
+    var result = '';
     result = '<p>Числа Фибоначчи в диапазоне от ' + start + ' до ' + finish + '</p>' + arr.join(', ');
     showResult('#fibonacciSequence', result);
+    
+    return result;
 }

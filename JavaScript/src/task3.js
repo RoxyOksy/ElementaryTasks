@@ -1,6 +1,6 @@
 function comparingTriangles(arrayOfTriangles){
-    var result = ' ';
     var squares = [];
+
     for(var i=0; i<arrayOfTriangles.length; i++){
         var triangle = arrayOfTriangles[i];
         squares.push (
@@ -9,12 +9,14 @@ function comparingTriangles(arrayOfTriangles){
     }
 
     var arrResult = compare(squares);
-
+    
+    var result = '';
     arrResult.forEach(function(item, i){
         result += item.name + ' = ' + item.square + '<br/>';
     })
     showResult('#comparingTriangles', result);
 
+    return result;
 }
 
 function getSquare(name,a,b,c){                          

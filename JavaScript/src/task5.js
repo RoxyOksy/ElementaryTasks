@@ -1,20 +1,6 @@
-function getTicket(num){
-    return String('000000' + num).slice(-6);
-}
-
-function  sumDigits(numberString){
-    var sum = 0;
-    for(var i = 0; i < numberString.length; i++){
-        sum += Number(numberString[i]);
-    }
-    return sum;
-}
-
 function isHappyTicket(start = 0,finish = 99){
     var isHappySimple = 0;
     var isHappyComplex = 0;
-    var winner = 'простой способ';
-    var result = '';
 
     for (var current = start; current <= finish; current++){
         var ticket = getTicket(current);
@@ -25,8 +11,7 @@ function isHappyTicket(start = 0,finish = 99){
             isHappySimple++;
         } 
    
-        var odd = ticket.split('').filter(function(e,key){
-            
+        var odd = ticket.split('').filter(function(e,key){            
             return (key+1)%2 !== 0;
         });
         var even = ticket.split('').filter(function(e,key){
@@ -37,18 +22,34 @@ function isHappyTicket(start = 0,finish = 99){
             isHappyComplex++;
         }       
     }
+
+    function getTicket(num){
+        return String('000000' + num).slice(-6);
+    }
+    
+    function sumDigits(numberString){
+        var sum = 0;
+        for(var i = 0; i < numberString.length; i++){
+            sum += Number(numberString[i]);
+        }
+        return sum;
+    }
+
+    var winner = 'простой способ';
     if(isHappySimple === isHappyComplex){
         winner = 'оба способа';
     } else if(Math.max(isHappySimple, isHappyComplex) === isHappyComplex){
         winner = 'сложный способ';
     }
 
-    result = 'Количество счастливых билетиков в диапазоне от ' + start + ' до ' + finish + '.<br/>';
+    var result = 'Количество счастливых билетиков в диапазоне от ' + start + ' до ' + finish + '.<br/>';
     result += 'Победитель: ' + winner + ' подсчёта.' + '<br/>';
     result += '1. Простой способ подсчета: ' + isHappySimple + '<br/>';
     result += '2. Сложный способ подсчета: ' + isHappyComplex + '<br/>';
     
-    showResult('#isHappyTicket', result);        
+    showResult('#isHappyTicket', result);  
+    
+    return result;
 }
 
 
