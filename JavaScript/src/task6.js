@@ -13,5 +13,5 @@ function getNaturalNumbers(n=10, m=25.01){
     result += msg;
     showResult('#naturalNumbers', result);
     
-    return result; 
+    return msg; 
 }                    

@@ -27,5 +27,5 @@ function getFibonacciSequence(start = 1, finish = 21) {
     result = '<p>Числа Фибоначчи в диапазоне от ' + start + ' до ' + finish + '</p>' + arr.join(', ');
     showResult('#fibonacciSequence', result);
     
-    return result;
+    return arr;
 }
