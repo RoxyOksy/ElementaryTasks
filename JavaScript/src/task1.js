@@ -22,6 +22,5 @@ function getChessBoard(a = 4, b = 12, simbol = '*'){
         }
 
     showResult('#chessBoard', board);
-
     return board;
 }

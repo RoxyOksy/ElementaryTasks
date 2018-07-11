@@ -1,5 +1,6 @@
 function getNaturalNumbers(n=10, m=25.01){
     n = numberValidation(n); 
+    m = numberValidation(m);
     
     var start = Math.ceil(Math.sqrt(m));
     var finish = start + n;
@@ -12,6 +13,6 @@ function getNaturalNumbers(n=10, m=25.01){
     
     result += msg;
     showResult('#naturalNumbers', result);
-    
+
     return msg; 
 }                    

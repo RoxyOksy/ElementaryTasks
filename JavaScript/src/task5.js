@@ -1,12 +1,9 @@
-function getFibonacciSequence(start = 1, finish = 21) {
-    start = numberValidation(start);
-    finish = numberValidation(finish);    
+function getFibonacciSequence(context) {
+    var start, finish;
+    context.hasOwnProperty('min') ? start = numberValidation(context.min) : start = 1;
+    context.hasOwnProperty('max') ? finish = numberValidation(context.max) : finish = 21;
 
-    if (start > finish) {
-        var temp = finish;
-        finish = start;
-        start = temp;
-    }
+    [start, finish]  = swap(start,finish);
 
     var arr = [1, 1];
     var next;

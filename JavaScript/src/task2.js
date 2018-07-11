@@ -14,9 +14,10 @@ function comparingTriangles(arrayOfTriangles){
     arrResult.forEach(function(item, i){
         result += item.name + ' = ' + item.square + '<br/>';
     })
-    showResult('#comparingTriangles', result);
 
-    return result;
+    showResult('#comparingTriangles', result);
+    
+    return arrResult;
 }
 
 function getSquare(name,a,b,c){                          

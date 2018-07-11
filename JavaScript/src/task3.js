@@ -1,4 +1,10 @@
-function isHappyTicket(start = 0,finish = 99){
+function isHappyTicket(context){
+    var start, finish;
+    context.hasOwnProperty('min') ? start = context.min : start = 0;
+    context.hasOwnProperty('max') ? finish = context.max : finish = 99;
+
+    [start, finish]  = swap(start,finish);
+
     var isHappySimple = 0;
     var isHappyComplex = 0;
 
@@ -35,6 +41,12 @@ function isHappyTicket(start = 0,finish = 99){
     result += '2. Сложный способ подсчета: ' + isHappyComplex + '<br/>';
     
     showResult('#isHappyTicket', result);
+
+    return {
+        winner: winner,
+        isHappySimple: isHappySimple,
+        isHappyComplex: isHappyComplex
+    }
 }
 
 function getTicket(num){
