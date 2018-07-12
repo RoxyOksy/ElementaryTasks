@@ -23,7 +23,8 @@ function comparingTriangles(arrayOfTriangles){
 function getSquare(name,a,b,c){                          
     var p = (a+b+c)*0.5;
     var square = Math.sqrt(p*(p-a)*(p-b)*(p-c)).toFixed(2);
-    var obj = {name: name, square: square};              
+    var obj = {name: name, square: square};
+
     return obj;
 }
 
@@ -31,5 +32,6 @@ function compare(squares){
     squares.sort(function(a, b) {
         return b.square - a.square;
     });
+    
     return squares;
 }

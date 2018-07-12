@@ -1,12 +1,13 @@
 function getFibonacciSequence(context) {
     var start, finish;
+
     context.hasOwnProperty('min') ? start = numberValidation(context.min) : start = 1;
     context.hasOwnProperty('max') ? finish = numberValidation(context.max) : finish = 21;
 
     [start, finish]  = swap(start,finish);
 
-    var arr = [1, 1];
-    var next;
+    var arr = [1, 1],
+        next;
 
     for (var i = 0; ; i++) { 
         next = arr[i] + arr[i + 1];
@@ -22,6 +23,7 @@ function getFibonacciSequence(context) {
 
     var result = '';
     result = '<p>Числа Фибоначчи в диапазоне от ' + start + ' до ' + finish + '</p>' + arr.join(', ');
+
     showResult('#fibonacciSequence', result);
     
     return arr;

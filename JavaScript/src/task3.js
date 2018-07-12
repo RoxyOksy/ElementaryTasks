@@ -1,18 +1,19 @@
 function isHappyTicket(context){
     var start, finish;
-    context.hasOwnProperty('min') ? start = context.min : start = 0;
-    context.hasOwnProperty('max') ? finish = context.max : finish = 99;
+
+    context.hasOwnProperty('min') ? start = numberValidation(context.min) : start = 0;
+    context.hasOwnProperty('max') ? finish = numberValidation(context.max) : finish = 99;
 
     [start, finish]  = swap(start,finish);
 
-    var isHappySimple = 0;
-    var isHappyComplex = 0;
+    var isHappySimple = 0,
+        isHappyComplex = 0;
 
     for (var current = start; current <= finish; current++){
-        var ticket = getTicket(current);
+        var ticket = getTicket(current),
+            leftPart = ticket.substr(0, 3),
+            rightPart = ticket.substr(3); 
 
-        var leftPart = ticket.substr(0, 3);
-        var rightPart = ticket.substr(3);      
         if(sumDigits(leftPart) === sumDigits(rightPart)){
             isHappySimple++;
         } 
@@ -29,6 +30,7 @@ function isHappyTicket(context){
     }
 
     var winner = 'простой способ';
+
     if(isHappySimple === isHappyComplex){
         winner = 'ничья';
     } else if(Math.max(isHappySimple, isHappyComplex) === isHappyComplex){
@@ -55,9 +57,11 @@ function getTicket(num){
 
 function sumDigits(numberString){
     var sum = 0;
+
     for(var i = 0; i < numberString.length; i++){
         sum += Number(numberString[i]);
     }
+
     return sum;
 }
 
